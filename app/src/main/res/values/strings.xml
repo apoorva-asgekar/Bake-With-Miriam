@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BakeWithMiriam</string>
+    <string name="error_main">Error loading Recipes! Check network connection.</string>
+    <string name="ingredients_heading">Ingredients</string>
+    <string name="steps_heading">Recipe steps</string>
+    <string name="steps_sub_heading">Click each step to see details.</string>
+    <string name="next_button_text">Next Step</string>
+    <string name="no_steps">No more steps in this recipe.</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+</resources>

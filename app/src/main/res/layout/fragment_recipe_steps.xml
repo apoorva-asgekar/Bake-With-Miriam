@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_recipe_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/recipe_name_padding"
+            android:textSize="@dimen/recipe_name_size"
+            android:textStyle="bold"
+            android:gravity="center"
+            tools:text="Nutella Pie" />
+
+        <LinearLayout
+            android:id="@+id/ll_ingredients"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/ingredients_margin"
+            android:layout_marginLeft="@dimen/ingredients_margin"
+            android:layout_marginRight="@dimen/ingredients_margin"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="@dimen/ingredients_padding">
+
+            <TextView
+                android:id="@+id/tv_ingredients_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/ingredients_heading_marginBottom"
+                android:layout_marginLeft="@dimen/ingredients_heading_marginLeft"
+                android:text="@string/ingredients_heading"
+                android:textSize="@dimen/ingredients_heading_size"
+                android:textStyle="bold"
+                tools:text="@string/ingredients_heading" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_ingredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recyclerview_marginLeft"
+                android:layout_marginRight="@dimen/recyclerview_marginRight" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_steps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/steps_margin"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            android:padding="@dimen/steps_padding">
+
+            <TextView
+                android:id="@+id/tv_steps_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/steps_marginLeft"
+                android:text="@string/steps_heading"
+                android:textSize="@dimen/steps_heading_size"
+                android:textStyle="bold"
+                tools:text="@string/steps_heading" />
+
+            <TextView
+                android:id="@+id/tv_steps_sub_heading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/steps_marginBottom"
+                android:layout_marginLeft="@dimen/steps_marginLeft"
+                android:text="@string/steps_sub_heading"
+                android:textSize="@dimen/steps_subheading_size"
+                android:textStyle="italic"
+                tools:text="@string/steps_sub_heading" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_steps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recyclerview_marginLeft"
+                android:layout_marginRight="@dimen/recyclerview_marginRight"
+                android:background="@drawable/thin_border" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

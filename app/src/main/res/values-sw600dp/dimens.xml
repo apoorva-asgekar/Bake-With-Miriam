@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="video_pane_vertical_margin">16dp</dimen>
+    <dimen name="video_pane_horizontal_margin">16dp</dimen>
+    <dimen name="recipe_name_size">24sp</dimen>
+    <dimen name="ingredients_heading_size">24sp</dimen>
+    <dimen name="steps_heading_size">24sp</dimen>
+    <dimen name="steps_subheading_size">18sp</dimen>
+    <dimen name="desc_size">24sp</dimen>
+    <dimen name="desc_top_margin">16dp</dimen>
+    <dimen name="widget_recipe_name_size">20sp</dimen>
+    <dimen name="widget_recipe_ing_title_size">20sp</dimen>
+    <dimen name="widget_ing_size">12sp</dimen>
+    <dimen name="widget_card_padding">8dp</dimen>
+    <dimen name="widget_recipe_name_textview_height">22dp</dimen>
+    <dimen name="widget_ing_heading_textview_height">22dp</dimen>
+    <dimen name="widget_recipe_imageview_height">80dp</dimen>
+    <dimen name="widget_ing_list_textview_height">140dp</dimen>
+    <dimen name="item_ingredient_size">18sp</dimen>
+    <dimen name="item_step_size">18sp</dimen>
+</resources>
