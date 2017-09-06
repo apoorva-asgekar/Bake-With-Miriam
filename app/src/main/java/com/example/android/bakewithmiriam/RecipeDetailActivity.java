@@ -20,6 +20,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
     private static boolean mTwoPane;
     private static Recipe currentRecipe;
     private RecipeStep mSelectedStep;
+    private StepDetailFragment mStepDetailFragment;
 
     public static RecipeStep getNextStep(String stepId) {
         RecipeStep nextStep = null;
@@ -70,10 +71,16 @@ public class RecipeDetailActivity extends AppCompatActivity implements
         }
 
         if (mTwoPane) {
-            StepDetailFragment stepDetailFragment = new StepDetailFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.step_detail_container, stepDetailFragment)
-                    .commit();
+            if(savedInstanceState == null) {
+                mStepDetailFragment = new StepDetailFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.step_detail_container, mStepDetailFragment, "Step Detail Video")
+                        .commit();
+            } else {
+                mStepDetailFragment = (StepDetailFragment)
+                        getSupportFragmentManager()
+                                .getFragment(savedInstanceState, "Step Detail Video");
+            }
         }
     }
 
@@ -102,6 +109,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putParcelable("selectedStep", mSelectedStep);
         outState.putBoolean("twoPane", mTwoPane);
     }

@@ -30,6 +30,7 @@ import static com.example.android.bakewithmiriam.R.id.playerView;
 public class StepDetailFragment extends Fragment {
 
     private static final String LOG_TAG = StepDetailFragment.class.getSimpleName();
+    private static final String PLAYER_STATE = "buffered_position";
     @BindView(R.id.playerView)
     SimpleExoPlayerView mPlayerView;
     @Nullable
@@ -40,6 +41,8 @@ public class StepDetailFragment extends Fragment {
     Button mNextButton;
     private RecipeStep mCurrentStep = null;
     private SimpleExoPlayer mExoPlayer;
+    private Long currentPosition;
+    private Uri videoUri = null;
 
     @Nullable
     @Override
@@ -74,6 +77,14 @@ public class StepDetailFragment extends Fragment {
     }
 
     @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(savedInstanceState != null) {
+            currentPosition = savedInstanceState.getLong(PLAYER_STATE);
+        }
+    }
+
+    @Override
     public void onPause() {
         super.onPause();
         if (mExoPlayer != null) {
@@ -86,22 +97,43 @@ public class StepDetailFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         Log.d(LOG_TAG, "onDestroyView");
-        MediaPlayerUtils.releasePlayer(mExoPlayer);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(LOG_TAG, "onStop");
+        mExoPlayer = MediaPlayerUtils.releasePlayer(mExoPlayer);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         Log.d(LOG_TAG, "onResume");
+        if(mExoPlayer == null) {
+            // Initialize the Media Session.
+            MediaPlayerUtils.initializeMediaSession(getActivity(), mExoPlayer);
+            // Initialize the player.
+            if (videoUri != null) {
+                mExoPlayer = MediaPlayerUtils.initializePlayer(videoUri, getActivity(), mExoPlayer);
+                Log.d(LOG_TAG, "Player initialized");
+            } else {
+                mPlayerView.setDefaultArtwork(BitmapFactory.decodeResource
+                        (getResources(), R.drawable.no_video));
+            }
+        }
         mPlayerView.setPlayer(mExoPlayer);
         if (mExoPlayer != null) {
-            mExoPlayer.seekTo(0);
+            if(currentPosition != null) {
+                mExoPlayer.seekTo(currentPosition);
+            } else {
+                mExoPlayer.seekTo(0);
+            }
             mExoPlayer.setPlayWhenReady(true);
         }
     }
 
     private void setVideoForStep(RecipeStep currentStep) {
-        Uri videoUri = null;
         String thumbnailUrl = null;
         if (currentStep.getVideoUrl() != null) {
             videoUri = Uri.parse(currentStep.getVideoUrl());
@@ -119,9 +151,6 @@ public class StepDetailFragment extends Fragment {
             if (urlContentType != null && !urlContentType.isEmpty()) {
                 if (urlContentType.startsWith("image/")) {
                     mPlayerView.setDefaultArtwork(NetworkUtils.getBitmapFromURL(thumbnailUrl));
-                } else if (urlContentType.startsWith("video/")
-                        && (videoUri == null)) {
-                    videoUri = Uri.parse(thumbnailUrl);
                 }
             }
             //In case thumbnail Url is provided but is of unidentifiable content type -
@@ -141,4 +170,10 @@ public class StepDetailFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        long lastPosition = mExoPlayer.getCurrentPosition();
+        outState.putLong(PLAYER_STATE, lastPosition);
+    }
 }

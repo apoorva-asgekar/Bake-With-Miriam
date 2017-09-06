@@ -1,15 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_ll_recipe_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="@dimen/widget_margin">
+    android:background="@drawable/border"
+    android:padding="@dimen/widget_card_padding"
+    android:orientation="vertical">
 
-    <GridView
-        android:id="@+id/widget_grid_view"
+    <TextView
+        android:id="@+id/widget_recipe_name"
+        android:background="#ffffff"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/widget_recipe_name_textview_height"
+        android:textAlignment="center"
         android:gravity="center"
-        android:numColumns="2"/>
+        android:layout_gravity="center"
+        android:textSize="@dimen/widget_recipe_name_size"
+        android:textStyle="bold"
+        tools:text="Nutella Pie" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/widget_recipe_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_recipe_imageview_height"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/food" />
+
+    <TextView
+        android:id="@+id/widget_recipe_ing_title"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_ing_heading_textview_height"
+        android:layout_gravity="left"
+        android:text="@string/ingredients_heading"
+        android:textAlignment="center"
+        android:textSize="@dimen/widget_recipe_ing_title_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/widget_recipe_ing_list"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/widget_ing_list_textview_height"
+        android:layout_gravity="left"
+        android:padding="2dp"
+        android:textSize="@dimen/widget_ing_size"
+        android:textStyle="bold"
+        tools:text="something, something" />
+
+</LinearLayout>

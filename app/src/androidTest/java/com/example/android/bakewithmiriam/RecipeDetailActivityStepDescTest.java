@@ -25,7 +25,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  * Created by apoorva on 8/14/17.
  */
 
-public class RecipeDetailActivityBasicTest {
+public class RecipeDetailActivityStepDescTest {
 
     private final static String STEP_DESC = "Step description";
 

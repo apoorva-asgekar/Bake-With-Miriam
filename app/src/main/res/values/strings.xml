@@ -8,4 +8,5 @@
     <string name="no_steps">No more steps in this recipe.</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="configure_widget_text">Select widget recipe</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="recipe_card_name_size">20sp</dimen>
+    <dimen name="recipe_card_name_size">22sp</dimen>
     <dimen name="video_pane_vertical_margin">16dp</dimen>
     <dimen name="video_pane_horizontal_margin">16dp</dimen>
     <dimen name="ingredients_padding">16dp</dimen>
@@ -9,15 +9,15 @@
     <dimen name="steps_margin">16dp</dimen>
     <dimen name="recipe_name_margin">16dp</dimen>
     <dimen name="next_button_height">20dp</dimen>
-    <dimen name="recipe_name_size">20sp</dimen>
+    <dimen name="recipe_name_size">22sp</dimen>
     <dimen name="recipe_name_padding">16dp</dimen>
-    <dimen name="ingredients_heading_size">20sp</dimen>
+    <dimen name="ingredients_heading_size">22sp</dimen>
     <dimen name="ingredients_heading_marginLeft">16dp</dimen>
     <dimen name="ingredients_heading_marginBottom">8dp</dimen>
     <dimen name="recyclerview_marginLeft">16dp</dimen>
     <dimen name="recyclerview_marginRight">8dp</dimen>
-    <dimen name="steps_heading_size">20sp</dimen>
-    <dimen name="steps_subheading_size">12sp</dimen>
+    <dimen name="steps_heading_size">22sp</dimen>
+    <dimen name="steps_subheading_size">16sp</dimen>
     <dimen name="steps_marginLeft">16dp</dimen>
     <dimen name="steps_marginBottom">8dp</dimen>
     <dimen name="desc_size">20sp</dimen>
@@ -27,12 +27,13 @@
     <dimen name="widget_recipe_name_textview_height">12dp</dimen>
     <dimen name="widget_ing_heading_textview_height">12dp</dimen>
     <dimen name="widget_recipe_imageview_height">60dp</dimen>
-    <dimen name="widget_ing_list_textview_height">100dp</dimen>
+    <dimen name="widget_ing_list_textview_height">120dp</dimen>
     <dimen name="widget_recipe_ing_title_size">10sp</dimen>
     <dimen name="widget_ing_size">6sp</dimen>
     <dimen name="widget_card_padding">4dp</dimen>
-    <dimen name="item_ingredient_size">12sp</dimen>
-    <dimen name="item_step_size">12sp</dimen>
+    <dimen name="item_ingredient_size">18sp</dimen>
+    <dimen name="item_step_size">18sp</dimen>
+    <dimen name="configure_widget_text_size">18sp</dimen>
 
     <!--
 Refer to App Widget Documentation for margin information
